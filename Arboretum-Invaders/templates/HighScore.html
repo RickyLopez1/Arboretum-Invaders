@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+<style>
+
+body{background-color:#b5d7a8;
+background-image: url(/static/assets/PDOT.PNG);}
+h1{background-color: black;
+  background-size: 50% 50%;
+  color: red;
+  font-family: lucida console;
+  text-align: center;
+  font-size: 500%;
+  width: 550px}
+table{
+  border-color:#b5d7a8;
+  border: 1px;
+  width: 100%
+}
+td {
+    font-family: lucida console;
+    height: 45px;
+    border-collapse: collapse;
+    text-align: center;
+    font-size: 150%;
+    color: red;
+}
+th{
+  font-family: lucida console;
+  font-size: 150%;
+  height: 45px;
+  border-collapse: collapse;
+  text-align: center;
+  color: red;
+  background-color: black;
+}
+tr:hover {background-color: black;}
+.button {
+  color: red;
+  font-weight: bold;
+  font-family: lucida console;
+  font-size: 30px;
+  margin: 4px 2px;
+  background-color: black;}
+
+.container {
+text-align: center;
+left: 0;
+right: 0;
+}
+
+.main {
+position: relative;
+width: 700px;
+margin: auto;
+}
+
+.main:before {
+background-color: #b5d7a8;
+content:'';
+position: absolute;
+width: 700px;
+height: 530px;
+margin: auto;
+left: 0px;
+z-index: -1;
+}
+
+
+</style>
+
+<body>
+<center>
+<h1>Scoreboard</h1>
+<div class="container">
+  <div class="main">
+    <table>
+      <tr>
+        <th>Player 1</th>
+        <th>Score</th>
+        <th>Player 2</th>
+        <th>Score</th>
+        <th>Total Score</th>
+      </tr>
+      <tr>
+        <td>{{scores[0][0]}}</td>
+        <td>{{scores[0][2]}}</td>
+        <td>{{scores[0][1]}}</td>
+        <td>{{scores[0][3]}}</td>
+        <td>{{scores[0][4]}}</td>
+      </tr>
+      <tr>
+        <td>{{scores[1][0]}}</td>
+        <td>{{scores[1][2]}}</td>
+        <td>{{scores[1][1]}}</td>
+        <td>{{scores[1][3]}}</td>
+        <td>{{scores[1][4]}}</td>
+      </tr>
+      <tr>
+        <td>{{scores[2][0]}}</td>
+        <td>{{scores[2][2]}}</td>
+        <td>{{scores[2][1]}}</td>
+        <td>{{scores[2][3]}}</td>
+        <td>{{scores[2][4]}}</td>
+      </tr>
+      <tr>
+        <td>{{scores[3][0]}}</td>
+        <td>{{scores[3][2]}}</td>
+        <td>{{scores[3][1]}}</td>
+        <td>{{scores[3][3]}}</td>
+        <td>{{scores[3][4]}}</td>
+      </tr>
+      <tr>
+        <td>{{scores[4][0]}}</td>
+        <td>{{scores[4][2]}}</td>
+        <td>{{scores[4][1]}}</td>
+        <td>{{scores[4][3]}}</td>
+        <td>{{scores[4][4]}}</td>
+      </tr>
+      <tr>
+        <td>{{scores[5][0]}}</td>
+        <td>{{scores[5][2]}}</td>
+        <td>{{scores[5][1]}}</td>
+        <td>{{scores[5][3]}}</td>
+        <td>{{scores[5][4]}}</td>
+      </tr>
+      <tr>
+        <td>{{scores[6][0]}}</td>
+        <td>{{scores[6][2]}}</td>
+        <td>{{scores[6][1]}}</td>
+        <td>{{scores[6][3]}}</td>
+        <td>{{scores[6][4]}}</td>
+      </tr>
+      <tr>
+        <td>{{scores[7][0]}}</td>
+        <td>{{scores[7][2]}}</td>
+        <td>{{scores[7][1]}}</td>
+        <td>{{scores[7][3]}}</td>
+        <td>{{scores[7][4]}}</td>
+      </tr>
+      <tr>
+        <td>{{scores[8][0]}}</td>
+        <td>{{scores[8][2]}}</td>
+        <td>{{scores[8][1]}}</td>
+        <td>{{scores[8][3]}}</td>
+        <td>{{scores[8][4]}}</td>
+      </tr>
+      <tr>
+        <td>{{scores[9][0]}}</td>
+        <td>{{scores[9][2]}}</td>
+        <td>{{scores[9][1]}}</td>
+        <td>{{scores[9][3]}}</td>
+        <td>{{scores[9][4]}}</td>
+      </tr>
+    </table>
+  </div>
+</div>
+<br/>
+<a><button class="button" onclick="goToMainMenu()">Back to Main Menu</button></a>
+</center>
+<script>
+function goToMainMenu() {
+  window.location.href = "main_menu";
+}
+</script>
+</body>
+</html>

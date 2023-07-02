@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<style>
+
+body{background-color:#b5d7a8;
+  background-image: url(/static/assets/PDOT.PNG);}
+h1{background-color: black;
+  color: red;
+  font-weight: bold;
+  font-family: lucida console;
+  text-align: center;
+  font-size: 75px}
+  h2{background-color: red;
+    background-size: 50% 50%;
+    color: black;
+    font-weight: bold;
+    font-family: lucida console;
+    text-align: center;
+    font-size: 25px;
+    width: 300px}
+  .button {
+    color: red;
+    font-weight: bold;
+    font-family: lucida console;
+    font-size: 30px;
+    margin: 4px 2px;
+    background-color: black;}
+  .button_2 {
+    color: red;
+    font-weight: bold;
+    font-family: lucida console;
+    font-size: 60px;
+    margin: 4px 2px;
+    background-color: black;}
+  button:hover {
+    box-shadow: 0 8px 15px 0 rgba(0,0,0,0.3), 0 5px 21px 0 rgba(0,0,0,0.18);
+  }
+
+  </style>
+  </head>
+  <body>
+  <center>
+  <br/>
+  <h1>Room: {{room_name}}</h1>
+  <br/>
+  <h2>Enter your name:</h2>
+  <input type="text" id="player_name" name="player_name" size="32">
+  <br/>
+  <a><button class="button" onclick="sendPlayerName()">Ready</button></a>
+  <br/>
+  <br/>
+  <br/>
+  <br/>
+  <a><button class="button_2" onclick="goToGame()">Defend the Arboretum!</button></a>
+  <br/>
+  <br/>
+  <br/>
+  <a><button class="button" onclick="goToMainMenu()">Back to Main Menu</button></a>
+  </center>
+  <script>
+      var my_player = "{{my_player}}";
+      let info_key_player;
+      if (my_player == 0) {
+        info_key_player = "name_player_1";
+      } else {
+        info_key_player = "name_player_2";
+      }
+      function sendPlayerName() {
+          var player_name = document.getElementById("player_name").value;
+          var xhttpSend;
+          xhttpSend = new XMLHttpRequest();
+          xhttpSend.onreadystatechange = function() {};
+          xhttpSend.open("POST", "updateClientInfo", true);
+          xhttpSend.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+          xhttpSend.send("info_key=" + info_key_player + "&info_value=" + player_name);
+      }
+      function goToGame() {
+        this.xhttpGet = new XMLHttpRequest();
+        this.xhttpGet.onreadystatechange = function() {
+          if (this.readyState == 4 && this.status == 200) {
+            let client_info = JSON.parse(this.responseText);
+            if (client_info.name_player_1.length > 0 && client_info.name_player_2.length > 0) {
+              if (my_player == 0) {
+                window.location.href = "test2_p1";
+              } else if (my_player == 1) {
+                window.location.href = "test2_p2";
+              }
+            }
+          }
+        };
+        this.xhttpGet.open("GET", "requestClientInfo", true);
+        this.xhttpGet.send();
+      }
+      function goToMainMenu() {
+        window.location.href = "main_menu";
+      }
+  </script>
+  </body>
+  </html>

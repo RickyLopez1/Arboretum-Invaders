@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+
+body{background-color:#b5d7a8;
+background-image: url(/static/assets/PDOT.PNG);}
+h1{background-color: black;
+  background-size: 50% 50%;
+  color: red;
+  font-family: lucida console;
+  text-align: center;
+  font-size: 500%;
+  width: 350px}
+h2{
+    color: red;
+    font-family: lucida console;
+    font-size: 175%;
+    top: 200px;
+    left: 650px;
+    }
+    .button {
+      color: red;
+      font-weight: bold;
+      font-family: lucida console;
+      font-size: 30px;
+      margin: 4px 2px;
+      background-color: black;}
+
+    .container {
+    text-align: center;
+    left: 0;
+    right: 0;
+   }
+
+  .main {
+    position: relative;
+    width: 600px;
+    margin: auto;
+  }
+
+  .main:before {
+    background-color: black;
+    content:'';
+    position: absolute;
+    width: 600px;
+    height: 475px;
+    margin: auto;
+    left: 0px;
+    z-index: -1;
+  }
+
+</style>
+</head>
+<body>
+  <center>
+    <h1>Credits</h1>
+    <div class="container">
+      <div class="main">
+        <h2><br>Creators:<br><br>Geoffrey Cater<br>Paige Looney<br>Ricky Lopez<br><br>Advisor:<br><br>Michael Wehar<br><br>Pennsylvania Department of Agriculture<br>Spotted Lanternfly Report Hotline:<br><br>1-888-4BADFLY<br><br></h2>
+      </div>
+    </div>
+    <br/>
+    <a><button class="button" onclick="goToMainMenu()">Back to Main Menu</button></a>
+    </center>
+    <script>
+    function goToMainMenu() {
+      window.location.href = "main_menu";
+    }
+    </script>
+</body>
+</html>

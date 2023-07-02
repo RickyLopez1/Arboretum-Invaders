@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+
+    body{background-color:#b5d7a8;
+      background-image: url(/static/assets/PDOT.PNG);}
+      h1{background-color: black;
+        background-size: 50% 50%;
+        color: red;
+        font-weight: bold;
+        font-family: lucida console;
+        text-align: center;
+        font-size: 75px;
+        width: 850px}
+        h2{background-color: red;
+          background-size: 50% 50%;
+          color: black;
+          font-weight: bold;
+          font-family: lucida console;
+          text-align: center;
+          font-size: 25px;
+          width: 175px}
+        .button {
+          color: red;
+          font-weight: bold;
+          font-family: lucida console;
+          font-size: 30px;
+          margin: 4px 2px;
+          background-color: black;}
+        .button_2 {
+          color: red;
+          font-weight: bold;
+          font-family: lucida console;
+          font-size: 60px;
+          margin: 4px 2px;
+          background-color: black;}
+        button:hover {
+          box-shadow: 0 8px 15px 0 rgba(0,0,0,0.3), 0 5px 21px 0 rgba(0,0,0,0.18);
+        }
+
+
+      </style>
+    </head>
+    <body>
+      <center>
+        <br/>
+        <h1>Arboretum Invaders</h1>
+        <br/>
+        <h2>Room name:</h2>
+        <input type="text" id="room_name" name="room_name" size="30"><br><br>
+        <a><button class="button_2" onclick="buttonClicked()">Play</button></a>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <a href="highscores"><button class="button">Scoreboard</button></a>
+        <br/>
+        <a href="credits"><button class="button">Credits</button></a>
+      </center>
+      <script>
+            function buttonClicked() {
+                var room_name = document.getElementById("room_name").value;
+                if (room_name.length != 0) {
+                  this.xhttpGet = new XMLHttpRequest();
+                  this.xhttpGet.onreadystatechange = function() {
+                      if (this.readyState == 4 && this.status == 200) {
+                        let client_info = JSON.parse(this.responseText);
+                        if (client_info.room_name.length == 0) {
+                          var xhttpSend;
+                          xhttpSend = new XMLHttpRequest();
+                          xhttpSend.onreadystatechange = function() {};
+                          xhttpSend.open("POST", "updateClientInfo", true);
+                          xhttpSend.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+                          xhttpSend.send("info_key=" + "room_name" + "&info_value=" + room_name);
+                          window.location.href = "room";
+                        } else if (client_info.room_name == room_name) {
+                          window.location.href = "room";
+                        }
+                      }
+                    };
+                    this.xhttpGet.open("GET", "requestClientInfo", true);
+                    this.xhttpGet.send();
+                }
+            }
+      </script>
+    </body>
+    </html>
